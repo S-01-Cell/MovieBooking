@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Page</title>
+    <title>Settings</title>
 
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
-<body class="profile-body">
+<body class="bookmarks-body">
     <div class="profile-top-half">
         <div class="profile-user-wrapper">
             <div class="username">
@@ -30,7 +30,6 @@
             <a href="Settings.html" class="active">Settings</a>|
         </div>
 
-
         <div class="settings-page">
             <div class="settings-container">
                 <!-- ACCOUNT INFO -->
@@ -47,16 +46,110 @@
                     <input type="password" id="account-password" placeholder="Enter new password">
 
                     <button class="save-btn">Save Changes</button>
+
+                    <h3 class="subsection-title">Linked Accounts</h3>
+                    <div class="linked-accounts">
+                        <button class="linked-btn google">
+                            <img src="assets/google.svg" alt="Google"> Google
+                        </button>
+                        <button class="linked-btn facebook">
+                            <img src="assets/facebook.svg" alt="Facebook"> Facebook
+                        </button>
+                        <button class="linked-btn twitter">
+                            <img src="assets/twitter.svg" alt="Twitter"> Twitter
+                        </button>
+                    </div>
+
+                    <h3 class="subsection-title">Payment / Wallets</h3>
+                    <div class="wallet-section">
+                        <!-- Saved Payment Methods -->
+                        <div class="saved-payments">
+                            <div class="payment-card">
+                                <img src="assests/savedcard.png" alt="Visa Card" class="card-image">
+                                <span class="card-details">Visa •••• 1234</span>
+                                <button class="delete-btn" title="Remove">&#128465;</button>
+                            </div>
+
+                            <div class="payment-card">
+                                <img src="assests/paypal.png" alt="PayPal" class="card-image">
+                                <span class="card-details">PayPal - user@email.com</span>
+                                <button class="delete-btn" title="Remove">&#128465;</button>
+                            </div>
+                        </div>
+
+                        <!-- Add New Card -->
+                        <div class="payment-card add-new">
+                            <span class="plus-icon">+</span>
+                            <span class="add-text">Add New Payment Method</span>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <h3 class="subsection-title">Notifications</h3>
+                    <div class="notifications-section">
+
+                        <div class="notification-item">
+                            <span>Email Notifications</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <span>SMS Notifications</span>
+                            <label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+
+                        <div class="notification-item">
+                            <span>Push Notifications</span>
+                            <label class="switch">
+                                <input type="checkbox" checked>
+                                <span class="slider round"></span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Help -->
+                    <h3 class="subsection-title">Help & Support</h3>
+                    <div class="help-section">
+
+                        <a href="faq.html" class="help-link">
+                            <img src="assets/help-icon.svg" alt="FAQ" class="help-icon">
+                            <span>FAQs</span>
+                        </a>
+
+                        <a href="contact.html" class="help-link">
+                            <img src="assets/contact-icon.svg" alt="Contact" class="help-icon">
+                            <span>Contact Us</span>
+                        </a>
+
+                        <a href="report.html" class="help-link">
+                            <img src="assets/report-icon.svg" alt="Report" class="help-icon">
+                            <span>Report a Problem</span>
+                        </a>
+                    </div>
+
+                    <h3 class="subsection-title">Account Actions</h3>
+                    <div class="account-actions">
+                        <button class="danger-btn">Delete Account</button>
+                        <button class="logout-btn">Log Out</button>
+                    </div>
+
+
+
+
                 </div>
             </div>
         </div>
 
 
 
-
-
         <div class="sidebar">
-            <a href="HomePage1.html">
+            <a href="homepage1.html">
                 <img src="assests/Home.svg" alt="Home" />
             </a>
             <a href="#">

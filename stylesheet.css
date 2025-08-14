@@ -846,87 +846,57 @@ tbody tr td:last-child {
 
 
 /* TICKET RECIEPT */
-body.reciept {
+.ticket-container {
+    width: 600px;
+    height: 300px;
+    background: url('ticket.svg') no-repeat center/cover;
+    /* your SVG file */
+    padding-top: 40px;
+    /* spacing from header */
+    padding-left: 40px;
+    font-family: Arial, sans-serif;
+    color: black;
+}
+
+.ticket-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.ticket-header h1 {
     margin: 0;
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--white);
-    font-family: 'Poppins', sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 28px;
+    font-size: 24px;
 }
 
-/* center page content */
-.page {
-    width: 960px;
-    max-width: calc(100% - 48px);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/* SVG looks like printed ticket */
-svg#ticket {
-    width: 916px;
-    max-width: 100%;
-    height: auto;
-    display: block;
-    filter: drop-shadow(8px 8px 0px var(--paper-shadow));
-    border-radius: 10px;
-}
-
-/* controls below ticket */
-.controls {
-    margin-top: 18px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-}
-
-.controls input[type="text"],
-.controls select {
-    padding: 8px 10px;
-    border-radius: 6px;
-    border: 1px solid #ddd;
+.ticket-header p {
+    margin: 5px 0 0;
     font-size: 14px;
-    min-width: 180px;
 }
 
-.controls button {
-    padding: 8px 14px;
-    border-radius: 8px;
-    border: none;
-    background: #e21b18;
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+.ticket-content {
+    width: 80%;
+    margin: auto;
 }
 
-.controls button:active {
-    transform: translateY(2px);
-    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+.ticket-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
 }
 
-/* Print rules - keep the ticket and hide controls while printing */
-@media print {
-    body {
-        background: white;
-        color: black;
-    }
+.ticket-row label {
+    font-weight: bold;
+    width: 40%;
+}
 
-    .controls {
-        display: none !important;
-    }
+.ticket-row input,
+.ticket-row select {
+    width: 55%;
+    padding: 5px;
+    font-size: 14px;
+}
 
-    svg#ticket {
-        filter: none;
-        width: 100%;
-        max-width: 100%;
-    }
+n-left: 5px;
 }
 
 
@@ -1545,21 +1515,20 @@ td {
 /* SETTINGS */
 /* SETTINGS PAGE STYLES - scoped with .settings-page */
 .settings-page .settings-container {
-    max-width: 500px;
-    margin: 20px auto;
+    max-width: 60%;
+    margin: 90px auto;
 }
 
 .settings-page .settings-section {
-    background: #f7f7f7;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 25px;
+    color: white;
 }
 
 .settings-page .settings-section h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 2rem;
+    margin-bottom: 25px;
     font-weight: 600;
 }
 
@@ -1567,6 +1536,7 @@ td {
     display: block;
     font-weight: 500;
     margin: 8px 0 4px;
+    font-size: 1.5rem;
 }
 
 .settings-page .settings-section input {
@@ -1579,18 +1549,393 @@ td {
 }
 
 .settings-page .settings-section .save-btn {
-    background: #d32f2f;
+    background: #ff0000;
     color: white;
     border: none;
     padding: 10px 16px;
     border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
 }
 
 .settings-page .settings-section .save-btn:hover {
-    background: #b71c1c;
+    background: #970F0F;
 }
+
+/* Subsection heading */
+.settings-page .subsection-title {
+    text-align: left;
+    margin: 80px 0 25px;
+    font-size: 2rem;
+    font-weight: 600;
+
+}
+
+/* Linked accounts container */
+.settings-page .linked-accounts {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Linked account buttons */
+.settings-page .linked-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #eee;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.settings-page .linked-btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.settings-page .linked-btn:hover {
+    background: #ddd;
+}
+
+/* Specific colors for platforms */
+.settings-page .linked-btn.google {
+    background: #fff;
+    border: 1px solid #ccc;
+}
+
+.settings-page .linked-btn.facebook {
+    background: #3b5998;
+    color: white;
+}
+
+.settings-page .linked-btn.twitter {
+    background: #1da1f2;
+    color: white;
+}
+
+/* Wallet / Payment section */
+/* Saved Payments Section */
+.saved-payments {
+    margin-bottom: 20px;
+}
+
+.payment-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.card-image {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.card-details {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: #888;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+/* Saved Payments Section */
+.saved-payments {
+    margin-bottom: 20px;
+}
+
+.payment-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.payment-card:hover {
+    background: #f9f9f9;
+}
+
+.card-image {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.card-details {
+    flex-grow: 1;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    font-size: 1.7rem;
+    cursor: pointer;
+    color: #000;
+}
+
+.delete-btn:hover {
+    color: red;
+}
+
+/* Add New Payment Card */
+.payment-card.add-new {
+    justify-content: center;
+    border: 2px dashed #000;
+    background: none;
+}
+
+.plus-icon {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 8px;
+    color: #000;
+}
+
+.add-text {
+    font-size: 0.95rem;
+    color: #000;
+}
+
+/* Notifications Section */
+.notifications-section {
+    margin-top: 15px;
+}
+
+.notification-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Toggle Switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 42px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .3s;
+    border-radius: 22px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    transition: .3s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: #ff0000;
+}
+
+input:checked+.slider:before {
+    transform: translateX(20px);
+}
+
+/* Help & Support Section */
+.help-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    font-size: 1.5rem;
+}
+
+.help-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #ff0000;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: #fff;
+    transition: background 0.3s;
+    width: 50%;
+}
+
+.help-link:hover {
+    background: #f5f5f5;
+}
+
+.help-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* Account Actions */
+.account-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.account-actions button {
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+/* Delete Account button */
+.danger-btn {
+    background: #ff0000;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.danger-btn:hover {
+    background: #970F0F;
+}
+
+/* Logout button */
+.logout-btn {
+    background: #ff0000;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.logout-btn:hover {
+    background: #970F0F;
+}
+
+/* ========================= */
+/* RESPONSIVE ADJUSTMENTS    */
+/* ========================= */
+@media (max-width: 1024px) {
+
+    /* Settings Page */
+    .settings-page .settings-container {
+        max-width: 80%;
+        margin: 70px auto;
+    }
+
+    .settings-page .settings-section h2 {
+        font-size: 1.75rem;
+    }
+
+    .settings-page .settings-section label {
+        font-size: 1.25rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /* Settings Page */
+    .settings-page .settings-container {
+        max-width: 90%;
+        margin: 50px auto;
+    }
+
+    .settings-page .settings-section h2 {
+        font-size: 1.5rem;
+    }
+
+    .settings-page .settings-section label {
+        font-size: 1.1rem;
+    }
+
+    .settings-page .help-link {
+        width: 100%;
+    }
+
+    /* Profile Top & Bottom Halves */
+    .profile-top-half {
+        height: 25vh;
+        /* slightly smaller on tablets */
+    }
+
+    .profile-bottom-half {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Settings Page */
+    .settings-page .settings-container {
+        max-width: 95%;
+        margin: 30px auto;
+    }
+
+    .settings-page .settings-section h2 {
+        font-size: 1.25rem;
+    }
+
+    .settings-page .settings-section label {
+        font-size: 1rem;
+    }
+
+    .settings-page .settings-section input {
+        font-size: 0.9rem;
+    }
+
+    .settings-page .save-btn,
+    .settings-page .danger-btn,
+    .settings-page .logout-btn {
+        font-size: 1rem;
+        padding: 8px 12px;
+    }
+
+    .profile-bottom-half {
+        padding: 10px;
+    }
+}
+
+
+
 
 
 

@@ -20,62 +20,63 @@
 
 <body class="reciept">
 
-    <!-- Your Ticket SVG -->
-    <img src="assests/ticket.svg" xmlns="http://www.w3.org/2000/svg" width="600" height="300">
-    <!-- Your SVG shapes here -->
-    <rect width="600" height="300" fill="#f4f4f4" stroke="black" />
+    <!-- Header -->
+    <header class="home-header d-flex justify-content-between align-items-center px-3 py-2">
+        <h1 class="home-h1">BookMyShow</h1>
+        <div class="home-profile d-flex gap-3">
+            <span>Home</span>
+            <div class="profile-icon" id="nav-open-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile" />
+            </div>
+        </div>
+    </header>
 
-    <!-- Dynamic fields -->
-    <text id="bookingId" x="50" y="50" font-size="18" fill="black">Booking ID</text>
-    <text id="movieName" x="50" y="80" font-size="18" fill="black">Movie Name</text>
-    <text id="dateTime" x="50" y="110" font-size="18" fill="black">Date & Time</text>
-    <text id="seats" x="50" y="140" font-size="18" fill="black">Seats</text>
-    <text id="paymentVia" x="50" y="170" font-size="18" fill="black">Payment Via</text>
-    <text id="nameField" x="50" y="200" font-size="18" fill="black">Name</text>
-    <text id="location" x="50" y="230" font-size="18" fill="black">Location</text>
-    <text id="type" x="50" y="260" font-size="18" fill="black">Type</text>
-    <text id="totalPrice" x="50" y="290" font-size="18" fill="black">Total Price</text>
-    </svg>
+    <div class="ticket-container">
+        <div class="ticket-header">
+            <h1>BookMyShow</h1>
+            <p id="currentDateTime"></p>
+        </div>
 
-    <!-- JavaScript -->
+        <div class="ticket-content">
+            <div class="ticket-row">
+                <label>Booking ID:</label>
+                <span id="bookingId"></span>
+            </div>
+            <div class="ticket-row">
+                <label>Name:</label>
+                <input type="text" id="name" placeholder="Enter Name">
+            </div>
+            <div class="ticket-row">
+                <label>Payment Via:</label>
+                <select id="payment">
+                    <option value="">Select Payment Method</option>
+                    <option>Cash</option>
+                    <option>Credit Card</option>
+                    <option>Debit Card</option>
+                    <option>UPI</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
     <script>
-        function generateTicket() {
-            document.getElementById("bookingId").textContent = Math.floor(Math.random() * 900000) + 100000;
-            document.getElementById("movieName").textContent = "Doctor Strange in the Multiverse of Madness";
-            document.getElementById("dateTime").textContent = new Date().toLocaleString();
-
-            // Seats fixed from E6-E10 (200 each)
-            let seats = ["E6", "E7", "E8", "E9", "E10"];
-            let selectedSeats = seats.sort(() => 0.5 - Math.random()).slice(0, 3);
-            document.getElementById("seats").textContent = selectedSeats.join(", ");
-
-            // Calculate total price
-            let total = selectedSeats.length * 200;
-            document.getElementById("totalPrice").textContent = "₹" + total;
-
-            // Payment dropdown value
-            let paymentMethod = document.getElementById("paymentSelect").value;
-            document.getElementById("paymentVia").textContent = paymentMethod;
-
-            // Name from input
-            let name = document.getElementById("nameInput").value;
-            document.getElementById("nameField").textContent = name;
-
-            document.getElementById("location").textContent = "PVR Kormangala - Kormangala";
-            document.getElementById("type").textContent = "Prime";
+        // Set current date & time
+        function updateDateTime() {
+            const now = new Date();
+            const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            document.getElementById('currentDateTime').textContent =
+                now.toLocaleDateString('en-IN', options) + ' ' +
+                now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' });
         }
+
+        // Generate booking ID
+        function generateBookingId() {
+            return 'BMS' + Math.floor(Math.random() * 900000 + 100000);
+        }
+
+        document.getElementById('bookingId').textContent = generateBookingId();
+        updateDateTime();
     </script>
-
-    <!-- Controls -->
-    <label>Name: <input type="text" id="nameInput"></label>
-    <label>Payment:
-        <select id="paymentSelect">
-            <option value="UPI">UPI</option>
-            <option value="Card">Card</option>
-        </select>
-    </label>
-    <button onclick="generateTicket()">Generate Ticket</button>
-
 </body>
 
 </html>
