@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Page 1</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="movie-b">
+
+    <!-- Header -->
+    <header class="home-header d-flex justify-content-between align-items-center px-3 py-2">
+        <h1 class="home-h1">BookMyShow</h1>
+        <div class="home-profile d-flex gap-3">
+            <span>Home</span>
+            <div class="profile-icon" id="nav-open-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile" />
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="movie-hero d-flex">
+        <div class="poster-side text-center">
+            <img src="assests/Doctor-Strange.jpg" alt="Movie Poster" class="poster mb-3">
+            <button class="book-btn btn btn-danger"><i class="fa-solid fa-ticket me-2"></i>Book now !</button>
+        </div>
+
+        <div class="info-side position-relative">
+            <div class="overlay">
+                <h1>Doctor Strange in the Multitude of Madness</h1>
+                <p><strong>Duration:</strong> 2h 6m</p>
+                <p><strong>Genre:</strong> Action, Adventure, Fantasy</p>
+                <p><strong>Description:</strong> Dr. Stephen Strange casts a forbidden spell that opens the doorway to
+                    the
+                    multiverse...</p>
+            </div>
+            <div class="bookmark-icon position-absolute top-0 end-0 p-3"><i class="far fa-bookmark"></i></div>
+        </div>
+    </section>
+
+    <!-- Cast -->
+    <section class="cast container py-4">
+        <h2><i class="fas fa-users me-2"></i> Cast</h2>
+        <div class="cast-members d-flex gap-4 mt-3">
+            <div class="actor text-center">
+                <img src="assests/user-circle.svg" alt="Actor 1">
+                <p>Actor 1</p>
+            </div>
+            <div class="actor text-center">
+                <img src="assests/user-circle.svg" alt="Actor 2">
+                <p>Actor 2</p>
+            </div>
+            <div class="actor text-center">
+                <img src="assests/user-circle.svg" alt="Actor 3">
+                <p>Actor 3</p>
+            </div>
+            <div class="actor text-center">
+                <img src="assests/user-circle.svg" alt="Actor 4">
+                <p>Actor 4</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Showlisting -->
+    <section class="showlisting container mt-5">
+        <h2 style="color: white;">Showlisting</h2>
+        <div class="date-strip d-flex align-items-start mt-3">
+            <div class="month-label">JUL</div>
+            <div class="date-options flex-nowrap overflow-auto d-flex gap-3 ms-3">
+                <div class="date-card">
+                    <div>5</div><span>Sat</span>
+                </div>
+                <div class="date-card selected">
+                    <div>6</div><span>Sun</span>
+                </div>
+                <div class="date-card">
+                    <div>9</div><span>Wed</span>
+                </div>
+                <div class="date-card">
+                    <div>10</div><span>Thu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews container mt-4 mb-3">
+        <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-3">
+            <h2 class="text-white m-0 d-flex align-items-center" style="font-size: 1.8rem;">
+                <i class="fas fa-star me-2"></i> Reviews
+            </h2>
+            <button title="Add Review"
+                class="btn btn-dark rounded-circle d-flex justify-content-center align-items-center"
+                style="width: 40px; height: 40px;">+</button>
+        </div>
+
+        <div class="review-grid d-flex gap-3 overflow-auto py-2">
+            <!-- Repeat for each review -->
+            <div class="review bg-dark text-white p-3 rounded" style="min-width: 350px; max-width: 350px;">
+                <div class="user d-flex align-items-center mb-2">
+                    <img src="assets/user1.jpg" alt="User" class="me-2 rounded-circle"
+                        style="width: 35px; height: 35px;">
+                    <span>User</span>
+                </div>
+                <p>Great movie! Loved the visual effects and storyline.</p>
+            </div>
+            <div class="review bg-dark text-white p-3 rounded" style="min-width: 350px; max-width: 350px;">
+                <div class="user d-flex align-items-center mb-2">
+                    <img src="assets/user2.jpg" alt="User" class="me-2 rounded-circle"
+                        style="width: 35px; height: 35px;">
+                    <span>User</span>
+                </div>
+                <p>Doctor Strange was amazing. A must-watch for Marvel fans!</p>
+            </div>
+            <div class="review bg-dark text-white p-3 rounded" style="min-width: 350px; max-width: 350px;">
+                <div class="user d-flex align-items-center mb-2">
+                    <img src="assets/user3.jpg" alt="User" class="me-2 rounded-circle"
+                        style="width: 35px; height: 35px;">
+                    <span>User</span>
+                </div>
+                <p>Brilliant acting and emotional depth. Highly recommended.</p>
+            </div>
+            <div class="review bg-dark text-white p-3 rounded" style="min-width: 350px; max-width: 350px;">
+                <div class="user d-flex align-items-center mb-2">
+                    <img src="assets/user4.jpg" alt="User" class="me-2 rounded-circle"
+                        style="width: 35px; height: 35px;">
+                    <span>User</span>
+                </div>
+                <p>Soundtrack and direction were top-notch. Would watch again!</p>
+            </div>
+            <div class="review bg-dark text-white p-3 rounded" style="min-width: 350px; max-width: 350px;">
+                <div class="user d-flex align-items-center mb-2">
+                    <img src="assets/user5.jpg" alt="User" class="me-2 rounded-circle"
+                        style="width: 35px; height: 35px;">
+                    <span>User</span>
+                </div>
+                <p>Unexpected twists and brilliant cinematography!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <!-- BookMyShow Title (Lifted Up) -->
+        <div style="margin-bottom: 10px;">
+            <h3>BookMyShow</h3>
+        </div>
+
+        <!-- Info Columns -->
+        <div
+            style="display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%; gap: 40px; padding-top: 10px;">
+
+            <!-- About Us -->
+            <div style="min-width: 200px;">
+                <h3>About Us</h3>
+                <a href="#">Who we are</a>
+            </div>
+
+            <!-- Services -->
+            <div style="min-width: 200px;">
+                <h3>Services</h3>
+                <a href="#">Help Center</a>
+                <a href="#">Report a bug</a>
+            </div>
+
+            <!-- Follow Us -->
+            <div style="min-width: 200px;">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <img src="assests/book.svg" alt="Facebook">
+                    <img src="assests/insta.svg" alt="Instagram">
+                    <img src="assests/tweet.svg" alt="Twitter">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Copyright -->
+        <div class="copyright" style="text-align: center; margin-top: 30px; font-size: 0.9rem;">
+            &copy; 2025 BookMyShow. All rights reserved.
+        </div>
+    </footer>
+    <!-- JS -->
+    <script>
+        const bookmarkIcon = document.querySelector('.bookmark-icon');
+        const icon = bookmarkIcon.querySelector('i');
+        bookmarkIcon.addEventListener('click', () => {
+            icon.classList.toggle('fas');
+            icon.classList.toggle('far');
+            bookmarkIcon.classList.toggle('selected');
+        });
+
+        const dateCards = document.querySelectorAll('.date-card');
+        dateCards.forEach(card => {
+            card.addEventListener('click', () => {
+                dateCards.forEach(c => c.classList.remove('selected'));
+                card.classList.add('selected');
+            });
+        });
+    </script>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("SlidingNav.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("nav-placeholder").innerHTML = data;
+
+                // Now that HTML is in the DOM, run nav toggle script
+                const openBtn = document.getElementById("nav-open-btn");
+                const closeOverlay = document.getElementById("nav-overlay");
+                const navSlide = document.getElementById("nav-slide");
+
+                openBtn.addEventListener("click", () => {
+                    navSlide.classList.add("open");
+                    closeOverlay.classList.add("visible");
+                });
+
+                closeOverlay.addEventListener("click", () => {
+                    navSlide.classList.remove("open");
+                    closeOverlay.classList.remove("visible");
+                });
+            });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="profile-body">
+    <div class="profile-top-half">
+        <div class="profile-user-wrapper">
+            <div class="username">
+                <strong>Username</strong>
+                <img src="assests/Edit.svg" alt="Edit Icon" class="edit-img" />
+            </div>
+        </div>
+    </div>
+    <div class="profile-bottom-half">
+
+        <div class="profile-image-wrapper">
+            <img src="assests/profileuser.svg" alt="User Icon" class="profile-img" />
+        </div>
+
+        <div class="profile-links">
+            <a href="Upcoming.html">Upcoming Bookings</a>|
+            <a href="Bookmarks.html">Bookmarks</a>|
+            <a href="Settings.html" class="active">Settings</a>|
+        </div>
+
+
+        <div class="settings-page">
+            <div class="settings-container">
+                <!-- ACCOUNT INFO -->
+                <div class="settings-section" id="account-info-section">
+                    <h2>Account Info</h2>
+
+                    <label for="account-email">Email</label>
+                    <input type="email" id="account-email" placeholder="Enter your email">
+
+                    <label for="account-username">Username</label>
+                    <input type="text" id="account-username" placeholder="Enter username">
+
+                    <label for="account-password">Password</label>
+                    <input type="password" id="account-password" placeholder="Enter new password">
+
+                    <button class="save-btn">Save Changes</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="sidebar">
+            <a href="HomePage1.html">
+                <img src="assests/Home.svg" alt="Home" />
+            </a>
+            <a href="#">
+                <img src="assests/Clock.svg" alt="History" />
+            </a>
+            <div class="logout-wrapper">
+                <a href="SignUp.html">
+                    <img src="assests/Log out.svg" alt="Logout" class="bottom-icon" />
+                </a>
+            </div>
+
+        </div>
+
+        <footer class="profile-footer">
+            <h3>BookMyShow</h3>
+        </footer>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seat Selection</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body class="movie-b">
+
+    <!-- Header -->
+    <header class="home-header d-flex justify-content-between align-items-center px-3 py-2">
+        <h1 class="home-h1">BookMyShow</h1>
+        <div class="home-profile d-flex gap-3">
+            <span>Home</span>
+            <div class="profile-icon" id="nav-open-btn">
+                <img src="https://cdn-icons-png.flaticon.com/512/747/747376.png" alt="Profile" />
+            </div>
+        </div>
+    </header>
+
+    <!-- Movie Title -->
+    <div class="movie-title">
+        <a href="MoviePage2.html">
+            <img src="assests/Arrow left.svg" alt="" class="arrow-left">
+        </a>
+        DOCTOR STRANGE IN THE MULTITUDE OF MADNESS
+    </div>
+
+    <!-- Legend -->
+    <div class="legend">
+        <span>
+            <div class="seat available"></div> Available
+        </span>
+        <span>
+            <div class="seat unavailable"></div> Unavailable
+        </span>
+        <span>
+            <div class="seat selected"></div> Selected
+        </span>
+    </div>
+
+    <!-- Seating area -->
+    <main class="seating-area">
+
+        <!-- Balcony with left/right blocks -->
+        <section class="section_b">
+            <h3>Balcony ₹250</h3>
+            <div class="balcony-split">
+                <div id="balcony-left" class="block"></div>
+                <div id="balcony-right" class="block"></div>
+            </div>
+        </section>
+
+        <!-- Prime (continuous rows) -->
+        <section class="section_b">
+            <h3>Prime ₹200</h3>
+            <div id="prime" class="block"></div>
+        </section>
+
+        <!-- Classic (continuous rows) -->
+        <section class="section_b">
+            <h3>Classic ₹150</h3>
+            <div id="classic" class="block"></div>
+        </section>
+
+        <!-- Screen + Book button -->
+        <div class="screen-wrap">
+            <img src="assests/screen.svg" alt="Screen" />
+            <div class="book-wrap">
+                <button class="book-btn">Book now !</button>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- JS: generate seats and handle click-to-select -->
+    <script>
+        // createSection(containerId, rows, seatsPerRow, startLetter)
+        function createSection(containerId, rows, seatsPerRow, startLetter, startNumber = 1) {
+            const container = document.getElementById(containerId);
+            let letterCode = startLetter.charCodeAt(0);
+
+            for (let r = 0; r < rows; r++) {
+                const rowDiv = document.createElement('div');
+                rowDiv.className = 'row';
+
+                const rowLetter = String.fromCharCode(letterCode);
+
+                // For each row, seat numbers start at startNumber (you can customize this logic per row if needed)
+                let seatNumber = startNumber;
+
+                for (let s = 0; s < seatsPerRow; s++) {
+                    const seat = document.createElement('button');
+                    seat.type = 'button';
+                    seat.className = 'seat available';
+                    seat.textContent = rowLetter + seatNumber;
+                    seat.dataset.seat = rowLetter + seatNumber;
+
+                    seat.addEventListener('click', () => {
+                        if (seat.classList.contains('unavailable')) return;
+                        seat.classList.toggle('selected');
+                    });
+
+                    rowDiv.appendChild(seat);
+                    seatNumber++;
+                }
+
+                container.appendChild(rowDiv);
+                letterCode++;
+            }
+
+            return String.fromCharCode(letterCode);
+        }
+
+
+        // configuration: adjust rows & counts here
+        // Balcony split: left 3 rows x 4 seats, right 3 rows x 4 seats (example)
+        let next = createSection('balcony-left', 3, 8, 'A');          // A rows in left
+        next = createSection('balcony-right', 3, 8, 'A', 9);            // continues letters on right
+
+        // Prime: 5 rows of 10 seats (continuous rows, centered)
+        next = createSection('prime', 4, 15, next);
+
+        // Classic: 5 rows of 12 seats (continuous)
+        createSection('classic', 3, 17, next);
+
+        // Example: mark some seats unavailable (demo)
+        // You can remove or change these lines or set unavailable programmatically
+        //const demoUnavailable = ['A3', 'B4', 'C5', 'D6', 'E7', 'F8'];
+        document.querySelectorAll('.seat').forEach(s => {
+            if (demoUnavailable.includes(s.dataset.seat)) {
+                s.classList.remove('available'); s.classList.add('unavailable');
+            }
+            // make all seats gray initially by removing inline styles (they're styled in CSS)
+        });
+    </script>
+    <div id="nav-placeholder"></div>
+    <script>
+        fetch("SlidingNav.html")
+            .then(res => res.text())
+            .then(data => {
+                document.getElementById("nav-placeholder").innerHTML = data;
+
+                // Now that HTML is in the DOM, run nav toggle script
+                const openBtn = document.getElementById("nav-open-btn");
+                const closeOverlay = document.getElementById("nav-overlay");
+                const navSlide = document.getElementById("nav-slide");
+
+                openBtn.addEventListener("click", () => {
+                    navSlide.classList.add("open");
+                    closeOverlay.classList.add("visible");
+                });
+
+                closeOverlay.addEventListener("click", () => {
+                    navSlide.classList.remove("open");
+                    closeOverlay.classList.remove("visible");
+                });
+            });
+    </script>
+
+
+</body>
+
+</html>
